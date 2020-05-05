@@ -5,8 +5,12 @@ export const Container = styled.div`
 
   overflow: hidden;
 
-  h1 {
+  h1, h2, h3, h4, h5 {
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  }
+
+  h6, h7 {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
   }
 
   p {
@@ -16,7 +20,7 @@ export const Container = styled.div`
     color: #2A2951;
   }
 
-  p, h1 {
+  p, h1, h2, h3 {
     max-width: 70%;
   }
 `;
@@ -78,6 +82,14 @@ export const Card = styled.div`
   }
 `;
 
+export const Pricing = styled.div`
+  margin-top: 225px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const InfoText = styled.div`
   margin-right: 52px;
 
@@ -118,13 +130,22 @@ export const CardText = styled.div`
 `;
 
 export const TextTitle = styled.h1`
-  font-size: 48px;
-  line-height: 72px;
+  font-size: 54px;
+  line-height: 81px;
 
   color: #2A2951;
 `;
 
-export const CardTitle = styled.h1`
+export const TextSubTitle = styled.h2`
+  font-size: 48px;
+  line-height: 72px;
+
+  text-align: center;
+
+  color: #2A2951;
+`;
+
+export const CardTitle = styled.h3`
   font-size: 40px;
   line-height: 60px;
 
@@ -136,7 +157,7 @@ export const Divider = styled.div`
   height: 4px;
   width: 50px;
 
-  margin-top: 50px;
+  margin-top: ${(props) => props.top ? props.top : '50px'};
   margin-bottom: 50px;
 `;
 
@@ -148,6 +169,13 @@ export const CardDescription = styled.p`
   margin-top: 10px;
 `;
 
+export const PricingDescription = styled.h4`
+  font-size: 24px;
+  line-height: 36px;
+
+  color: #5E758C;
+`;
+
 export const Cards = styled.div`
   display: flex;
   flex-direction: column;
@@ -156,6 +184,147 @@ export const Cards = styled.div`
   h1 + & {
     text-align: center;
   }
+`;
+
+export const MasterBoxes = styled.div`
+  margin-top: 75px;
+  display: flex;
+  
+  @media(max-width: 720px) {
+    flex-direction: column;
+  }
+`;
+
+export const PricingBoxes = styled.div`
+  display: flex;
+
+  @media(max-width: 1500px) {
+    flex-direction: column;
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
+
+  @media(max-width: 750px) {
+    flex-direction: column;
+    margin-right: 0;
+  }
+
+`;
+
+export const PricingBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 630px;
+  border-radius: 15px;
+  padding: 30px;
+  
+  margin-right: 40px;
+  
+  @media(max-width: 1500px) {
+    &:first-child {
+      margin-bottom: 50px;
+    }
+  }
+
+  @media(max-width: 750px) {
+    margin-bottom: 50px;
+  }
+
+  /* box-shadow: inset 0px 4px 10px rgba(185, 194, 209, 0.5); */
+
+  background: ${(props) => props.bg ? props.bg : '#fff'};
+  border: solid 2px ${(props) => props.col ? props.col : '#fff'};
+
+  & > div:first-child {
+    display: flex;
+    align-items: center;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      h5 {
+        font-size: 18px;
+        line-height: 22px;
+      }
+
+      p {
+        display: flex;
+        align-items: flex-end;
+        color: rgba(0, 0, 0, 0.5);
+
+        span {
+          align-self: flex-start;
+        }
+
+        strong {
+          color: #000000;
+          font-size: 36px;
+          line-height: 44px;
+          align-self: center;
+        }
+      }
+    }
+
+  }
+
+  img {
+    margin-right: 15px;
+  }
+`;
+
+export const PricingAdvantages = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 50px;
+`;
+
+export const PricingAdvantagesTitle = styled.h6`
+  font-size: 16px;
+  line-height: 19px;
+
+  color: ${(props) => props.white ? '#FFF' : '#000'};
+`;
+
+export const PricingAdvantage = styled.div`
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  color: ${(props) => props.white ? '#FFF' : '#000'};
+
+  h6 {
+    font-size: 14px;
+    line-height: 17px;
+  }
+`;
+
+export const PricingButton = styled.button`
+  ${(props) => props.icon ? `
+    background: url(${props.icon}) ${props.bg ? props.bg : '#FFF'};
+    background-repeat: no-repeat;
+    background-position: 40px 14px;
+    text-align: right;
+  ` : `
+    background-color: ${props.bg ? props.bg : '#FFF'};
+    text-align: center;  
+  `}
+
+  width: 260px;
+  height: 60px;
+
+  color: ${(props) => props.col ? props.col : '#000000'};
+
+  font-weight: bold;
+  font-size: 18px;
+  padding: 14px 40px;
+  border-radius: 10px;
+  border: 0;
+
+  margin-top: auto;
 `;
 
 // export const Container = styled.div`
